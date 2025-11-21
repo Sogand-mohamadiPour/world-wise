@@ -18,7 +18,29 @@ A modern single-page React application for tracking the places you've traveled �
 - **React Router**  
 - **CSS Modules**  
 - **Fake API / Mock data**  
-- **JavaScript (ES6+)**  
+- **JavaScript (ES6+)**
+
+## 🛠️ Installation
+
+Clone the project:
+
+```bash
+git clone https://github.com/Sogand-mohamadiPour/world-wise
+```
+Open the folder:
+```bash
+cd world-wise
+```
+Install dependencies:
+```bash
+npm install
+```
+Run the development server:
+```bash
+npm run dev
+```
+---
+
 
 ## 🎯 Project Purpose  
 WorldWise is designed to help practice:  
