@@ -8,7 +8,7 @@ export default function CityList({ cities, loading }) {
 
   if (!cities.length)
     return (
-      <Message message="Add yout first city bi clicking on a city on the map" />
+      <Message message="Add yout first city by clicking on a city on the map" />
     );
   return (
     <ul className={styles.cityList}>
