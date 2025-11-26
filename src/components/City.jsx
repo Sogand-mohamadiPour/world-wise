@@ -22,6 +22,7 @@ function City() {
   // };
 
   // const { cityName, emoji, date, notes } = currentCity;
+  
 
   return <h1>{id}</h1>;
 
