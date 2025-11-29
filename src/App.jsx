@@ -12,7 +12,7 @@ import CountriesList from "./components/CountriesList";
 import City from "./components/City";
 import Form from "./components/Form";
 
-const BASE_URL = "https://world-wise-jipz.onrender.com";
+const BASE_URL = "http://localhost:8000";
 
 function App() {
   const [cities, setCities] = useState([]);
@@ -22,7 +22,7 @@ function App() {
     async function fetchCities() {
       try {
         setLoading(true);
-        const res = await fetch(`${BASE_URL}/`);
+        const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
         setCities(data);
       } catch {
