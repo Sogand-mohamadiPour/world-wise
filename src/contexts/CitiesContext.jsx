@@ -23,6 +23,17 @@ function CitiesProvider({ children }) {
     }
     fetchCities();
   }, []);
+
+  return (
+    <CitiesContext.Provider
+      value={{
+        cities,
+        loading,
+      }}
+    >
+      {children}
+    </CitiesContext.Provider>
+  );
 }
 
-export { CitiesContext, CitiesProvider };
+export { CitiesProvider };
