@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Spinner from "./Spinner";
 import { useCities } from "../contexts/CitiesContext";
 import styles from "./City.module.css";
 
@@ -15,7 +16,7 @@ const formatDate = (date) =>
 
 function City() {
   const { id } = useParams();
-  const { getcity, currentCity } = useCities();
+  const { getcity, currentCity, loading } = useCities();
 
   useEffect(
     function () {
@@ -23,6 +24,10 @@ function City() {
     },
     [id]
   );
+
+  if (loading) return <Spinner />;
+
+  if (!currentCity || !currentCity.cityName) return null;
 
   const { cityName, emoji, date, notes } = currentCity;
 
