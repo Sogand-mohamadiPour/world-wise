@@ -1,5 +1,3 @@
-// import styles from "./City.module.css";
-
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Spinner from "./Spinner";
