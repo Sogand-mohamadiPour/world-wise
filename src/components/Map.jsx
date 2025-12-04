@@ -35,15 +35,24 @@ export default function Map() {
     [mapLat, mapLng]
   );
 
-  useEffect(function () {
-    if (geoLocationPosition) setMapPosition([Number(geoLocationPosition.lat), Number(geoLocationPosition.lng)])
-  }, [geoLocationPosition]);
+  useEffect(
+    function () {
+      if (geoLocationPosition)
+        setMapPosition([
+          Number(geoLocationPosition.lat),
+          Number(geoLocationPosition.lng),
+        ]);
+    },
+    [geoLocationPosition]
+  );
 
   return (
     <div className={styles.mapContainer}>
-      <Button type="position" onClick={getPosition}>
-        {isLoadingPosition ? "Loading..." : "use your position"}
-      </Button>
+      {!geoLocationPosition && (
+        <Button type="position" onClick={getPosition}>
+          {isLoadingPosition ? "Loading..." : "use your position"}
+        </Button>
+      )}
       <MapContainer
         center={mapPosition}
         zoom={6}
