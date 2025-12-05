@@ -1,3 +1,4 @@
+## Read the installation carefully!
 # 🌐 WorldWise  
 A modern single-page React application for tracking the places you've traveled — from cities to whole countries — all in one clean interface.
 
