@@ -35,6 +35,30 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Madrid",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2025-12-07T18:57:26.278Z",
+      "notes": "test",
+      "position": {
+        "lat": "40.40555095714136",
+        "lng": "-3.7130787989874396"
+      },
+      "id": 98443198
+    },
+    {
+      "cityName": "Langarud",
+      "country": "Iran (Islamic Republic of)",
+      "emoji": "🇮🇷",
+      "date": "2025-12-07T19:04:10.359Z",
+      "notes": "adding my hometown",
+      "position": {
+        "lat": "37.19518658091467",
+        "lng": "50.153244503175415"
+      },
+      "id": 98443199
     }
   ]
 }
