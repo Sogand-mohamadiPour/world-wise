@@ -14,12 +14,15 @@ const initialState = {
   cities: [],
   loading: false,
   currentCity: {},
+  error: "",
 };
 
 function reducer(state, action) {
   switch (action.type) {
+    case "cities/loading":
+      return { ...state, loading: true };
     case "cities/loaded":
-      return { ...state, cities: action.payload };
+      return { ...state, loading: false, cities: action.payload };
 
     case "cities/created":
       return { ...state, cities: [...state.cities, action.payload] };
@@ -29,6 +32,10 @@ function reducer(state, action) {
         ...state,
         cities: state.cities.filter((city) => city.id !== action.payload),
       };
+    case "rejected":
+      return { ...state, loading: false, error: action.payload };
+    default:
+      throw new Error("Unknown action type");
   }
 }
 
@@ -37,21 +44,19 @@ function CitiesProvider({ children }) {
     reducer,
     initialState
   );
-  // const [cities, setCities] = useState([]);
-  // const [loading, setLoading] = useState(false);
-  // const [currentCity, setCurrentCity] = useState({});
 
   useEffect(function () {
     async function fetchCities() {
+      dispatch({ type: "cities/loading" });
       try {
-        setLoading(true);
         const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
-        setCities(data);
+        dispatch({ type: "cities/loaded", payload: data });
       } catch {
-        alert("There was an error fetching cities");
-      } finally {
-        setLoading(false);
+        dispatch({
+          type: "rejected",
+          payload: "There was an error loading data...",
+        });
       }
     }
     fetchCities();
