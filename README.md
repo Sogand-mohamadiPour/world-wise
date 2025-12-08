@@ -10,7 +10,8 @@ A modern single-page React application for tracking the places you've traveled �
 - 🧩 Uses a **fake API** for data persistence  
 - 🎛️ **CSS Modules** for modular, maintainable styling  
 - 🧭 **React Router** for smooth in-app navigation  
-- ⚛️ State management using **useState**, **useEffect**, **useReducer**, and custom hooks  
+- ⚛️ State management using **useState**, **useEffect**, **useReducer**, and custom hooks
+- ⚛️ App-wide state handled through **Context API + useReducer** (Redux-like pattern)
 - ⚡ Built with **Vite** for a fast development experience  
 
 ## 🛠️ Built With  
@@ -28,15 +29,15 @@ Clone the project:
 ```bash
 git clone https://github.com/Sogand-mohamadiPour/world-wise
 ```
-Open the folder:
-```bash
-cd world-wise
-```
 Install dependencies:
 ```bash
 npm install
 ```
-Run the development server:
+Run the fake API
+```bash
+npm run server
+```
+Run the app:
 ```bash
 npm run dev
 ```
@@ -45,6 +46,7 @@ npm run dev
 
 ## 🎯 Project Purpose  
 WorldWise is designed to help practice:  
+- Working with *context API*
 - Working with geolocation features  
 - Managing state using multiple React hooks  
 - Handling CRUD operations with a fake backend  
