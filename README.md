@@ -16,7 +16,7 @@ A modern single-page React application for tracking the places you've traveled �
 
 ## 🛠️ Built With  
 - **React** (SPA architecture)  
-- **Vite**  
+- **Context API**  
 - **React Router**  
 - **CSS Modules**  
 - **Fake API / Mock data**  
