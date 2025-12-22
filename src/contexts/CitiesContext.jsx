@@ -6,7 +6,7 @@ import {
   useReducer,
 } from "react";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://world-wise-jipz.onrender.com/api";
 
 const CitiesContext = createContext();
 
@@ -60,7 +60,8 @@ function CitiesProvider({ children }) {
     async function fetchCities() {
       dispatch({ type: "loading" });
       try {
-        const res = await fetch(`${BASE_URL}/cities`);
+        const res = await fetch(`${BASE_URL}/cities/`);
+        if (!res.ok) throw new Error("Failed to fetch cities");
         const data = await res.json();
         dispatch({ type: "cities/loaded", payload: data });
       } catch {
@@ -76,7 +77,7 @@ function CitiesProvider({ children }) {
   const getCity = useCallback(async function getCity(id) {
     dispatch({ type: "loading" });
     try {
-      const res = await fetch(`${BASE_URL}/cities/${id}`);
+      const res = await fetch(`${BASE_URL}/cities/${id}/`);
       const data = await res.json();
       dispatch({ type: "city/loaded", payload: data });
     } catch {
@@ -87,37 +88,99 @@ function CitiesProvider({ children }) {
     }
   }, []);
 
+  // async function createCity(newCity) {
+  //   dispatch({ type: "loading" });
+  //   try {
+  //     const res = await fetch(`${BASE_URL}/cities/`, {
+  //       method: "POST",
+  //       body: JSON.stringify(newCity),
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+  //     const data = await res.json();
+  //     dispatch({ type: "city/created", payload: data });
+  //   } catch {
+  //     dispatch({
+  //       type: "rejected",
+  //       payload: "There was an error creating the city...",
+  //     });
+  //   }
+  // }
+
   async function createCity(newCity) {
     dispatch({ type: "loading" });
+
     try {
-      const res = await fetch(`${BASE_URL}/cities`, {
+      const res = await fetch(`${BASE_URL}/cities/`, {
         method: "POST",
         body: JSON.stringify(newCity),
         headers: {
           "Content-Type": "application/json",
         },
       });
+
+      // Check for HTTP errors
+      if (!res.ok) {
+        // DRF usually returns JSON with error details
+        const errorData = await res.json();
+        throw new Error(
+          errorData.detail ||
+            JSON.stringify(errorData) ||
+            "Failed to create city"
+        );
+      }
+
+      // Success: parse the response JSON
       const data = await res.json();
       dispatch({ type: "city/created", payload: data });
-    } catch {
-      dispatch({
-        type: "rejected",
-        payload: "There was an error creating the city...",
-      });
+    } catch (error) {
+      dispatch({ type: "rejected", payload: error.message });
     }
   }
 
+  // async function deleteCity(id) {
+  //   dispatch({ type: "loading" });
+  //   try {
+  //     await fetch(`${BASE_URL}/cities/${id}/`, {
+  //       method: "DELETE",
+  //     });
+  //     dispatch({ type: "city/deleted", payload: id });
+  //   } catch {
+  //     dispatch({
+  //       type: "rejected",
+  //       payload: "There was an error deleting the city...",
+  //     });
+  //   }
+  // }
+
   async function deleteCity(id) {
     dispatch({ type: "loading" });
+
     try {
-      await fetch(`${BASE_URL}/cities/${id}`, {
+      const res = await fetch(`${BASE_URL}/cities/${id}/`, {
         method: "DELETE",
       });
+
+      // Check if delete was successful
+      if (!res.ok) {
+        // DRF might return JSON with details or just a status code
+        let errorMsg = "There was an error deleting the city";
+        try {
+          const errorData = await res.json();
+          errorMsg = errorData.detail || JSON.stringify(errorData);
+        } catch {
+          // no JSON returned, keep default errorMsg
+        }
+        throw new Error(errorMsg);
+      }
+
+      // Success: remove city from state
       dispatch({ type: "city/deleted", payload: id });
-    } catch {
+    } catch (error) {
       dispatch({
         type: "rejected",
-        payload: "There was an error deleting the city...",
+        payload: error.message,
       });
     }
   }
