@@ -6,7 +6,7 @@ import {
   useReducer,
 } from "react";
 
-const BASE_URL = "https://world-wise-jipz.onrender.com/api";
+const BASE_URL = "https://world-wise-jipz.onrender.com";
 
 const CitiesContext = createContext();
 
@@ -60,7 +60,7 @@ function CitiesProvider({ children }) {
     async function fetchCities() {
       dispatch({ type: "loading" });
       try {
-        const res = await fetch(`${BASE_URL}/cities/`);
+        const res = await fetch(`${BASE_URL}/comments/`);
         if (!res.ok) throw new Error("Failed to fetch cities");
         const data = await res.json();
         dispatch({ type: "cities/loaded", payload: data });
@@ -77,7 +77,7 @@ function CitiesProvider({ children }) {
   const getCity = useCallback(async function getCity(id) {
     dispatch({ type: "loading" });
     try {
-      const res = await fetch(`${BASE_URL}/cities/${id}/`);
+      const res = await fetch(`${BASE_URL}/comments/${id}/`);
       const data = await res.json();
       dispatch({ type: "city/loaded", payload: data });
     } catch {
@@ -112,7 +112,7 @@ function CitiesProvider({ children }) {
     dispatch({ type: "loading" });
 
     try {
-      const res = await fetch(`${BASE_URL}/cities/`, {
+      const res = await fetch(`${BASE_URL}/comments/`, {
         method: "POST",
         body: JSON.stringify(newCity),
         headers: {
@@ -158,7 +158,7 @@ function CitiesProvider({ children }) {
     dispatch({ type: "loading" });
 
     try {
-      const res = await fetch(`${BASE_URL}/cities/${id}/`, {
+      const res = await fetch(`${BASE_URL}/comments/${id}/`, {
         method: "DELETE",
       });
 
