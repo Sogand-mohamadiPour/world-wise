@@ -15,11 +15,11 @@ const formatDate = (date) =>
 
 function City() {
   const { id } = useParams();
-  const { getcity, currentCity, loading } = useCities();
+  const { getCity, currentCity, loading } = useCities();
 
   useEffect(
     function () {
-      getcity(id);
+      getCity(id);
     },
     [id]
   );
