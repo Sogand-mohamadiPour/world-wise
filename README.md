@@ -37,7 +37,7 @@ WorldWise focuses on **real-world frontend architecture**, integrating a real ba
 ## 🔐 Authentication Note  
 
 This project uses a **fake authentication system on the frontend** to simulate login and protected routes.  
-The backend currently does **not** enforce authentication — real auth (JWT / token-based) can be added later without major refactoring.
+The backend currently does **not** enforce authentication — real auth can be added later without major refactoring.
 
 ---
 
