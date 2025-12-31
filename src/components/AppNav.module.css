@@ -26,3 +26,52 @@
 .nav a:global(.active) {
   background-color: var(--color-dark--0);
 }
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .nav {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .nav a:link,
+  .nav a:visited {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .nav ul {
+    flex-wrap: wrap;
+  }
+  
+  .nav a:link,
+  .nav a:visited {
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    flex: 1;
+    text-align: center;
+    min-width: 100px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .nav a:link,
+  .nav a:visited {
+    width: 100%;
+    padding: 0.7rem 1rem;
+  }
+}

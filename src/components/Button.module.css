@@ -33,3 +33,44 @@
   color: var(--color-dark--1);
   box-shadow: 0 0.4rem 1.2rem rgba(36, 42, 46, 0.16);
 }
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .btn {
+    padding: 0.7rem 1.4rem;
+    font-size: 1.4rem;
+  }
+  
+  .position {
+    font-size: 1.3rem;
+    bottom: 3rem;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 1.3rem;
+  }
+  
+  .position {
+    font-size: 1.2rem;
+    bottom: 2.5rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .position {
+    font-size: 1.1rem;
+    bottom: 2rem;
+    padding: 0.5rem 1rem;
+  }
+}

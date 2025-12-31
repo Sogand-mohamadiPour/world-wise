@@ -52,3 +52,79 @@
   background-color: var(--color-brand--1);
   color: var(--color-dark--1);
 }
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .cityItem,
+  .cityItem:link,
+  .cityItem:visited {
+    padding: 0.9rem 1.5rem;
+    gap: 1.2rem;
+  }
+  
+  .emoji {
+    font-size: 2.4rem;
+  }
+  
+  .name {
+    font-size: 1.6rem;
+  }
+  
+  .date {
+    font-size: 1.4rem;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .cityItem,
+  .cityItem:link,
+  .cityItem:visited {
+    padding: 0.8rem 1.2rem;
+    gap: 1rem;
+  }
+  
+  .emoji {
+    font-size: 2.2rem;
+  }
+  
+  .name {
+    font-size: 1.5rem;
+  }
+  
+  .date {
+    font-size: 1.3rem;
+  }
+  
+  .deleteBtn {
+    height: 1.8rem;
+    font-size: 1.4rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .cityItem,
+  .cityItem:link,
+  .cityItem:visited {
+    padding: 0.7rem 1rem;
+    gap: 0.8rem;
+  }
+  
+  .emoji {
+    font-size: 2rem;
+  }
+  
+  .name {
+    font-size: 1.4rem;
+  }
+  
+  .date {
+    font-size: 1.2rem;
+  }
+  
+  .deleteBtn {
+    height: 1.6rem;
+    font-size: 1.2rem;
+  }
+}

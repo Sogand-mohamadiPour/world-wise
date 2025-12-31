@@ -17,3 +17,39 @@
   font-size: 3rem;
   line-height: 1;
 }
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .countryItem {
+    font-size: 1.6rem;
+    padding: 0.9rem 1.5rem;
+  }
+  
+  .countryItem span:first-child {
+    font-size: 2.8rem;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .countryItem {
+    font-size: 1.5rem;
+    padding: 0.8rem 1.2rem;
+  }
+  
+  .countryItem span:first-child {
+    font-size: 2.5rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .countryItem {
+    font-size: 1.4rem;
+    padding: 0.7rem 1rem;
+  }
+  
+  .countryItem span:first-child {
+    font-size: 2.2rem;
+  }
+}

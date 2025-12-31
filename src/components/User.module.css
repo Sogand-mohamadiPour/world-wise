@@ -32,3 +32,66 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .user {
+    top: 3rem;
+    right: 3rem;
+    padding: 0.9rem 1.2rem;
+    font-size: 1.5rem;
+    gap: 1.4rem;
+  }
+  
+  .user img {
+    height: 3.5rem;
+  }
+  
+  .user button {
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .user {
+    top: 2rem;
+    right: 2rem;
+    padding: 0.8rem 1rem;
+    font-size: 1.4rem;
+    gap: 1.2rem;
+  }
+  
+  .user img {
+    height: 3rem;
+  }
+  
+  .user button {
+    padding: 0.5rem 0.9rem;
+    font-size: 1rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .user {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.7rem 0.9rem;
+    font-size: 1.2rem;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .user img {
+    height: 2.5rem;
+  }
+  
+  .user button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+}

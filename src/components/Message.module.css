@@ -5,3 +5,29 @@
   margin: 2rem auto;
   font-weight: 600;
 }
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .message {
+    font-size: 1.7rem;
+    width: 85%;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .message {
+    font-size: 1.6rem;
+    width: 90%;
+    margin: 1.5rem auto;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .message {
+    font-size: 1.4rem;
+    width: 95%;
+    margin: 1rem auto;
+  }
+}

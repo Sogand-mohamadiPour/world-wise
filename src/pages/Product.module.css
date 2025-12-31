@@ -32,3 +32,65 @@
 .product section a {
   margin-top: 2rem;
 }
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .product {
+    margin: 2rem;
+    padding: 2rem 3rem;
+  }
+  
+  .product section {
+    width: 100%;
+    gap: 4rem;
+    margin: 4rem auto;
+  }
+  
+  .product h2 {
+    font-size: 3rem;
+  }
+}
+
+/* Mobile styles - single column */
+@media (max-width: 768px) {
+  .product {
+    margin: 1.5rem;
+    padding: 2rem;
+  }
+  
+  .product section {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin: 3rem auto;
+  }
+  
+  .product h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .product p {
+    font-size: 1.5rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .product {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .product section {
+    gap: 2rem;
+    margin: 2rem auto;
+  }
+  
+  .product h2 {
+    font-size: 2rem;
+  }
+  
+  .product p {
+    font-size: 1.4rem;
+  }
+}
